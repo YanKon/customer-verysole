@@ -14,13 +14,16 @@ function request(method) {
             // headers: authHeader(url)
         };
         if (body) {
-            requestOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+            // requestOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+            requestOptions.headers = {
+                'Content-Type' : 'application/x-www-form-urlencoded'
+            }
             // requestOptions.body = JSON.stringify(body);
             console.log(body)
             requestOptions.form = {
                 'username': 'yannickkonrad@googlemail.com',
                 'password': 'test123'
-              }
+            }
         }
         console.log("requestOptions")
         console.log(requestOptions)
