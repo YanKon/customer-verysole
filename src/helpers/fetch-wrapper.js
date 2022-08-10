@@ -9,9 +9,14 @@ export const fetchWrapper = {
 
 function request(method) {
     return (url, body) => {
+        console.log("body")
+        console.log(body)
         const formData = new FormData();
-        formData.append('username', 'yannickkonrad@googlemail.com');
-        formData.append('password', 'test123');
+        // formData.append('username', 'yannickkonrad@googlemail.com');
+        // formData.append('password', 'test123');
+        for ( var key in test ) {
+            formData.append(key, test[key]);
+        }
         console.log(formData)
         const payload = new URLSearchParams(formData);
 
