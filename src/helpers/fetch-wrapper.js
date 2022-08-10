@@ -14,8 +14,8 @@ function request(method) {
         const formData = new FormData();
         // formData.append('username', 'yannickkonrad@googlemail.com');
         // formData.append('password', 'test123');
-        for ( var key in test ) {
-            formData.append(key, test[key]);
+        for ( var key in body ) {
+            formData.append(key, body[key]);
         }
         console.log(formData)
         const payload = new URLSearchParams(formData);
