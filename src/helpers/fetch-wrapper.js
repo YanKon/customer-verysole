@@ -11,7 +11,7 @@ function request(method) {
     return (url, body) => {
         const requestOptions = {
             method,
-            headers: authHeader(url)
+            // headers: authHeader(url)
         };
         if (body) {
             requestOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -22,6 +22,7 @@ function request(method) {
                 'password': 'test123'
               }
         }
+        console.log("requestOptions")
         console.log(requestOptions)
         return fetch(url, requestOptions).then(handleResponse);
     }
