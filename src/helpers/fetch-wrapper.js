@@ -9,6 +9,10 @@ export const fetchWrapper = {
 
 function request(method) {
     return (url, body) => {
+        const formData = new FormData();
+        formData.append('username', 'yannickkonrad@googlemail.com');
+        formData.append('password', 'test123');
+
         const requestOptions = {
             method,
             // headers: authHeader(url)
@@ -16,15 +20,10 @@ function request(method) {
         if (body) {
             // requestOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded';
             requestOptions.headers = {
-                'accept': 'application/json',
                 'Content-Type' : 'application/x-www-form-urlencoded'
             }
             // requestOptions.body = JSON.stringify(body);
-            console.log(body)
-            requestOptions.form = {
-                'username': 'yannickkonrad@googlemail.com',
-                'password': 'test123'
-            }
+            requestOptions.body = formData
         }
         console.log("requestOptions")
         console.log(requestOptions)
