@@ -22,10 +22,10 @@ function request(method) {
             // body : payload
         };
         if (body) {
-            requestOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded';
-            // requestOptions.headers = {
-            //     'Content-Type' : 'application/x-www-form-urlencoded'
-            // }
+            // requestOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+            requestOptions.headers = {
+                 'Content-Type' : 'application/x-www-form-urlencoded'
+            }
             // requestOptions.body = JSON.stringify(body);
             requestOptions.body = payload
         }
