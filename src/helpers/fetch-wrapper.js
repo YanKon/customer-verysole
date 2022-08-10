@@ -9,32 +9,26 @@ export const fetchWrapper = {
 
 function request(method) {
     return (url, body) => {
-        console.log("body")
-        console.log(body)
+
         const formData = new FormData();
-        // formData.append('username', 'yannickkonrad@googlemail.com');
-        // formData.append('password', 'test123');
         for ( var key in body ) {
             formData.append(key, body[key]);
         }
-        console.log(formData)
         const payload = new URLSearchParams(formData);
 
         const requestOptions = {
             method,
             // headers: authHeader(url)
-            body : payload
+            // body : payload
         };
         if (body) {
-            // requestOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded';
-            requestOptions.headers = {
-                'Content-Type' : 'application/x-www-form-urlencoded'
-            }
+            requestOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded';
+            // requestOptions.headers = {
+            //     'Content-Type' : 'application/x-www-form-urlencoded'
+            // }
             // requestOptions.body = JSON.stringify(body);
-            // requestOptions.body = formData
+            requestOptions.body = payload
         }
-        console.log("requestOptions")
-        console.log(requestOptions)
         return fetch(url, requestOptions).then(handleResponse);
     }
 }
