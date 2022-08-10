@@ -12,21 +12,18 @@ function request(method) {
         const formData = new FormData();
         formData.append('username', 'yannickkonrad@googlemail.com');
         formData.append('password', 'test123');
-        
-        const plainFormData = Object.fromEntries(formData.entries());
-	    const formDataJsonString = JSON.stringify(plainFormData);
-
+        console.log(formData)
+        const payload = new URLSearchParams(formData);
 
         const requestOptions = {
             method,
             // headers: authHeader(url)
-            body : formDataJsonString
+            body : payload
         };
         if (body) {
             // requestOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded';
             requestOptions.headers = {
-                "Content-Type": "application/json",
-			"Accept": "application/json"
+                'Content-Type' : 'application/x-www-form-urlencoded'
             }
             // requestOptions.body = JSON.stringify(body);
             // requestOptions.body = formData
