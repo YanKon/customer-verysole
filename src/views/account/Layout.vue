@@ -14,7 +14,7 @@ if (authStore.user) {
         <div class="row">
             <div class="">
                 <router-view />
-            </div>
+            </div>        
         </div>
     </div>
 </template>

@@ -16,8 +16,12 @@ export const useAuthStore = defineStore({
     actions: {
         async login(username, password) {
             try {
-                const user = await fetchWrapper.post(`${baseUrl}/authenticate`, { username, password });    
+                console.log(username)
+                console.log(password)
+            
+                const user = await fetchWrapper.post(`https://fastapi-verysole.herokuapp.com/auth/access-token`, { username, password });    
 
+                console.log(user)
                 // update pinia state
                 this.user = user;
 
