@@ -16,6 +16,7 @@ function request(method) {
         if (body) {
             // requestOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded';
             requestOptions.headers = {
+                'accept': 'application/json',
                 'Content-Type' : 'application/x-www-form-urlencoded'
             }
             // requestOptions.body = JSON.stringify(body);
