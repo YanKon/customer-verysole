@@ -16,6 +16,7 @@ function request(method) {
         const requestOptions = {
             method,
             // headers: authHeader(url)
+            body : formData
         };
         if (body) {
             // requestOptions.headers['Content-Type'] = 'application/x-www-form-urlencoded';
@@ -23,7 +24,7 @@ function request(method) {
                 'Content-Type' : 'application/x-www-form-urlencoded'
             }
             // requestOptions.body = JSON.stringify(body);
-            requestOptions.body = formData
+            // requestOptions.body = formData
         }
         console.log("requestOptions")
         console.log(requestOptions)
